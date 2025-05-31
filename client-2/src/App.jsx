@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import HomePages from './Pages/HomePages';
 import SignInPages from './Pages/SignInPages';
- 
+import AboutPages from './Pages/AboutPages'; // ✅ Add this line
 
 import DashboardLayout from './dashboard/DashboardLayout';
 import { Home, Team, Services, About, Profile } from './dashboard/DashboardPages';
@@ -11,12 +11,12 @@ import { Home, Team, Services, About, Profile } from './dashboard/DashboardPages
 function App() {
   return (
     <Routes>
+      {/* Main Pages */}
       <Route path="/" element={<HomePages />} />
       <Route path="/about" element={<AboutPages />} />
       <Route path="/signin" element={<SignInPages />} />
-       
 
-      {/* Dashboard Layout with nested pages */}
+      {/* Dashboard Pages */}
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<Navigate to="home" replace />} />
         <Route path="home" element={<Home />} />
@@ -26,13 +26,14 @@ function App() {
         <Route path="profile" element={<Profile />} />
       </Route>
 
-      {/* Catch-all route */}
+      {/* Fallback Route */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
 
 export default App;
+
 
 
 

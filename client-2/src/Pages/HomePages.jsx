@@ -1,60 +1,68 @@
  import React from 'react';
-import { Link } from 'react-router-dom';
- 
+import { useNavigate } from 'react-router-dom';
 
 const HomePages = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen bg-white text-gray-800">
-      {/* Header */}
-      <header className="flex items-center justify-between p-6 shadow-md">
-        <div className="flex items-center gap-2">
-          <img src={logo} alt="Logo" className="h-10" />
-          <span className="text-2xl font-bold">Codecraft Technologies</span>
-        </div>
-        <div className="flex items-center gap-6">
-          <Link to="/about" className="hover:text-blue-600 text-lg font-medium">About Us</Link>
-          <Link to="/signin" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Sign In</Link>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-white flex flex-col">
+      {/* Navbar */}
+      <div className="flex justify-between items-center px-8 py-6 shadow-md bg-white">
+        <h1 className="text-3xl font-bold text-indigo-600">Codecraft Technologies</h1>
+        <button
+          onClick={() => navigate('/signin')}
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg"
+        >
+          Sign In
+        </button>
+      </div>
 
       {/* Hero Section */}
-      <section className="py-20 px-6 text-center bg-gradient-to-br from-blue-100 to-blue-200">
-        <h1 className="text-4xl md:text-5xl font-bold text-blue-800 mb-4">
-          Empowering Innovation through Technology
-        </h1>
-        <p className="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl mx-auto">
-          At Codecraft Technologies, we build cutting-edge digital solutions—from web and mobile apps to custom enterprise software.
+      <div className="flex flex-col items-center justify-center text-center px-6 py-16">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-4">
+          We Build Smart Solutions for a Smarter Future
+        </h2>
+        <p className="text-lg text-gray-600 max-w-3xl mb-6">
+          Codecraft Technologies is an innovative tech company committed to delivering high-quality digital solutions. We
+          specialize in full-stack development, AI-based applications, UI/UX design, and enterprise tools that help businesses
+          grow in the digital age.
         </p>
-        <Link to="/dashboard/home" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-          Explore Our Work
-        </Link>
-      </section>
+        <button
+          onClick={() => navigate('/about')}
+          className="bg-indigo-600 hover:bg-indigo-700 text-white text-lg px-6 py-3 rounded-xl shadow-md transition"
+        >
+          Learn About Us
+        </button>
+      </div>
 
-      {/* Features */}
-      <section className="py-16 px-6 bg-white text-center">
-        <h2 className="text-3xl font-bold text-blue-800 mb-8">Our Core Expertise</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-semibold mb-2">Web Development</h3>
-            <p>We build scalable, responsive websites using modern tech stacks like React, Tailwind, and Node.js.</p>
+      {/* Services Preview */}
+      <div className="px-10 py-10 bg-indigo-50">
+        <h3 className="text-2xl font-semibold text-center mb-6 text-indigo-800">What We Do</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h4 className="text-xl font-semibold text-indigo-700">Full-Stack Development</h4>
+            <p className="mt-2 text-gray-600">Robust and scalable web applications using modern technologies like React, Node.js, and MongoDB.</p>
           </div>
-          <div className="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-semibold mb-2">Mobile Apps</h3>
-            <p>Cross-platform mobile apps with React Native and Flutter for a seamless experience.</p>
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h4 className="text-xl font-semibold text-indigo-700">AI & Automation</h4>
+            <p className="mt-2 text-gray-600">Smart solutions using Machine Learning, Natural Language Processing, and data-driven insights.</p>
           </div>
-          <div className="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-semibold mb-2">AI Solutions</h3>
-            <p>Smart apps powered by machine learning for analytics, recommendation systems, and automation.</p>
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h4 className="text-xl font-semibold text-indigo-700">UI/UX & Branding</h4>
+            <p className="mt-2 text-gray-600">Intuitive and stunning user experiences to boost engagement and brand identity.</p>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Footer */}
-      <footer className="text-center py-6 border-t mt-10 text-sm text-gray-500">
-        © 2025 Codecraft Technologies. All rights reserved.
+      <footer className="mt-auto py-4 bg-white border-t text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} Codecraft Technologies. All rights reserved.
       </footer>
     </div>
   );
 };
 
 export default HomePages;
+
+
+ 
