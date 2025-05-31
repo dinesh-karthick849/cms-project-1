@@ -1,50 +1,56 @@
-import React from 'react';
+ import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const AboutPages = () => {
+export default function AboutPages() {
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen bg-white text-gray-800 px-6 py-10">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold text-blue-700 mb-6">About Codecraft Technologies</h1>
+    <div className="min-h-screen flex flex-col bg-gray-50">
+      <header className="flex justify-between items-center p-6 bg-white shadow">
+        <h1 className="text-indigo-600 font-bold text-3xl">Codecraft Technologies</h1>
+        <button
+          onClick={() => navigate('/signin')}
+          className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700"
+        >
+          Sign In
+        </button>
+      </header>
 
-        <p className="text-lg mb-4">
-          At <span className="font-semibold text-blue-600">Codecraft Technologies</span>, we are committed to delivering innovative digital solutions that help businesses grow and evolve in the ever-changing tech landscape. 
-          With a team of highly skilled developers, designers, and strategists, we specialize in crafting custom software, web applications, and mobile apps tailored to client needs.
+      <main className="flex-grow max-w-5xl mx-auto p-10">
+        <h2 className="text-4xl font-extrabold mb-6 text-center text-indigo-700">
+          About Codecraft Technologies
+        </h2>
+        <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+          Codecraft Technologies is a leading software development company specializing in delivering
+          innovative and custom digital solutions to businesses worldwide. Founded with a vision to
+          empower organizations through technology, we combine cutting-edge tools and industry best
+          practices to create impactful software products.
+        </p>
+        <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+          Our expertise spans across full-stack web development, mobile applications, cloud solutions,
+          and enterprise software. With a highly skilled team of engineers, designers, and strategists,
+          we partner closely with clients to turn their ideas into scalable and secure solutions.
+        </p>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          At Codecraft, we believe in innovation, quality, and customer satisfaction. Our agile
+          approach ensures rapid delivery while maintaining flexibility to adapt to evolving business
+          needs. Join us on this journey to craft the future of technology.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-8 text-blue-600">🌟 Our Mission</h2>
-        <p className="text-base mt-2">
-          To empower businesses with cutting-edge technology solutions that are scalable, efficient, and user-friendly.
-        </p>
-
-        <h2 className="text-2xl font-semibold mt-6 text-blue-600">💼 What We Offer</h2>
-        <ul className="list-disc list-inside space-y-2 mt-2 text-base">
-          <li>Custom Web & Mobile App Development</li>
-          <li>UI/UX Design and Prototyping</li>
-          <li>Cloud Integration and Deployment</li>
-          <li>Maintenance & Technical Support</li>
-          <li>Data-Driven Business Intelligence Solutions</li>
-        </ul>
-
-        <h2 className="text-2xl font-semibold mt-6 text-blue-600">🤝 Why Choose Us?</h2>
-        <ul className="list-disc list-inside space-y-2 mt-2 text-base">
-          <li>Client-Centric Approach</li>
-          <li>Agile Development Methodology</li>
-          <li>Expert Team with Proven Experience</li>
-          <li>100% Transparency & Timely Delivery</li>
-        </ul>
-
-        <div className="mt-10 text-center">
-          <p className="text-lg font-medium">Want to know more or work with us?</p>
-          <a
-            href="/signin"
-            className="inline-block mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+        <div className="flex justify-center">
+          <button
+            onClick={() => navigate('/')}
+            className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition"
           >
-            Get in Touch
-          </a>
+            Back to Home
+          </button>
         </div>
-      </div>
+      </main>
+
+      <footer className="py-4 text-center text-gray-500 bg-gray-100">
+        © {new Date().getFullYear()} Codecraft Technologies. All rights reserved.
+      </footer>
     </div>
   );
-};
+}
 
-export default AboutPages;
