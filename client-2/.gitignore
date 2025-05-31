@@ -1,24 +1,28 @@
-# Logs
-logs
-*.log
-npm-debug.log*
+# Log files
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Build output
 node_modules
 dist
 dist-ssr
-*.local
+.local
 
-# Editor directories and files
+# Editor settings
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# System files
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.idx
+*.cdp
+*.cdpresource
+/AppData/
