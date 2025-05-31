@@ -1,15 +1,20 @@
  import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
+import HomePages from './Pages/HomePages';
 import SignInPages from './Pages/SignInPages';
+ 
+
 import DashboardLayout from './dashboard/DashboardLayout';
 import { Home, Team, Services, About, Profile } from './dashboard/DashboardPages';
 
 function App() {
   return (
     <Routes>
-      {/* Sign In */}
-      <Route path="/" element={<SignInPages />} />
+      {/* Public Pages */}
+      <Route path="/" element={<HomePages />} />
+      <Route path="/signin" element={<SignInPages />} />
+       
 
       {/* Dashboard Layout with nested pages */}
       <Route path="/dashboard" element={<DashboardLayout />}>
@@ -21,11 +26,12 @@ function App() {
         <Route path="profile" element={<Profile />} />
       </Route>
 
-      {/* Catch-all route for 404s */}
+      {/* Catch-all route */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
 
 export default App;
+
 
